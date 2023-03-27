@@ -13,90 +13,20 @@ public class Main {
         Student student3 = new Student("Jill Lundqvist", Person.Gender.FEMALE, "Jurisprudence", Student.TypeOfStudent.MASTER, Student.Course.I);
         Aspirant aspirant1 = new Aspirant("Ronald Correa", Person.Gender.MALE, "Computer science", "Design of a functional programming language");
 
+
+        student2.print();
+        teacher1.print();
+        aspirant1.print();
+
+
         Person[] people = {teacher1, teacher2, student1, student2, student3, aspirant1};
 
-        for(Person p : people) {
-            String className = p.getClass().getName();
-            switch (className) {
-                case "University.Teacher":
-                    Teacher t = (Teacher) p;
-                    String genderTeacher = (p.getGender() == Person.Gender.MALE) ? "He" : "She";
-                    /*
-                     Для всех должна печататься фраза «This is {name}. {He/she} {verb} at {department}», где:
-                     • {name}— фамилия и имя;
-                     • {He/she} — местоимение в зависимости от пола;
-                     • {verb} — глагол:
-                     • «teaches» для преподавателей;
-                     • «studies» для всех студентов.
-                     • {department} — название факультета.
-                     */
-                    System.out.println(
-                            "This is " +
-                                    t.getName() + ". " +
-                                    genderTeacher + " teaches at " +
-                                    t.getFaculty() + "."
-                    );
-                    /*
-                   • для преподавателей: «{He/she} has {degree} degree in {specialty}.», где:
-                     • {degree} — учёная степень;
-                     • {specialty} — название специальности.
-                     */
-                    System.out.println(
-                        genderTeacher + " has " + t.getDegree() + " degree in " + t.getQualification() + " ."
-                    );
-                    break;
-                case "University.Student":
-                    Student s = (Student) p;
-                    String genderStudent = (p.getGender() == Person.Gender.MALE) ? "He" : "She";
+        Person.printAll(people);
 
-                     /*
-                     Для всех должна печататься фраза «This is {name}. {He/she} {verb} at {department}», где:
-                     • {name}— фамилия и имя;
-                     • {He/she} — местоимение в зависимости от пола;
-                     • {verb} — глагол:
-                     • «teaches» для преподавателей;
-                     • «studies» для всех студентов.
-                     • {department} — название факультета.
-                     */
-                    System.out.println(
-                            "This is " + s.getName() + ". " +
-                                    genderStudent + " studies at " + s.getFaculty() + "."
-                    );
-                    /*
-                     • для студентов: «{He/she} is {N}‘th year {stage} student.», где:
-                     • {N} — номер курса;
-                     • {stage} — ступень обучения.
-                     */
-                    System.out.println(
-                            genderStudent + " is " + s.getCourse() + "th year " + s.getTypeOfStudent() + " student."
-                    );
-                    break;
-                case "University.Aspirant":
-                    Aspirant a = (Aspirant) p;
-                    String genderAspirant = (p.getGender() == Person.Gender.MALE) ? "He" : "She";
-                    String genderHisHerAspirant = (p.getGender() == Person.Gender.MALE) ? "His" : "Her";
-                     /*
-                     Для всех должна печататься фраза «This is {name}. {He/she} {verb} at {department}», где:
-                     • {name}— фамилия и имя;
-                     • {He/she} — местоимение в зависимости от пола;
-                     • {verb} — глагол:
-                     • «teaches» для преподавателей;
-                     • «studies» для всех студентов.
-                     • {department} — название факультета.
-                     */
-                    System.out.println(
-                            "This is " + a.getName() + ". " +
-                                    genderAspirant + " studies at " + a.getFaculty() + ".");
-                    /*
-                    • для аспирантов: «{His/her} thesis title is “{thesis-title}”», где:
-                    • {thesis-title} — тема диссертации.
-                     */
-                    System.out.println(
-                            genderHisHerAspirant + " thesis title is "+ "\"" + a.getThesisName() + "\"."
-                    );
-                    break;
-            }
-        }
+
+
+
+
     }
 
 }
