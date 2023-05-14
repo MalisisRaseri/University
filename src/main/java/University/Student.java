@@ -1,5 +1,7 @@
 package University;
 
+import java.util.Collection;
+
 public class Student extends Person{
 
     private TypeOfStudent typeOfStudent;
@@ -23,6 +25,17 @@ public class Student extends Person{
         return typeOfStudent;
     }
 
+
+    //  120-1-4 Реализуйте в классе Student из соответствующей задачи 110-го курса статический метод,
+    //  заполняющий заданную коллекцию типа Collection<Student> данными о некоторых студентах
+    //  (например, данными, приведёнными в примере в задаче 110-го курса).
+
+    public static void fillInCollection(Collection<? super Student> collection, Person[] persons){
+        for(Person person : persons){
+            if(person instanceof Student)
+                collection.add((Student)person);}
+    }
+
     public void setTypeOfStudent(TypeOfStudent typeOfStudent) {
         this.typeOfStudent = typeOfStudent;
     }
@@ -36,10 +49,10 @@ public class Student extends Person{
     }
 
     public enum TypeOfStudent{
-        BACHELOR, MASTER, ASPIRANT;
+        BACHELOR, MASTER, ASPIRANT
     }
 
     public enum Course{
-        I, II, III;
+        I, II, III
     }
 }
