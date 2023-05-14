@@ -1,4 +1,5 @@
 package University;
+import java.util.Collection;
 
 public class Person {
 
@@ -46,9 +47,17 @@ public class Person {
     }
 
     public enum Gender {
-        MALE, FEMALE;
+        MALE, FEMALE
     }
 
+    ///120-1-3  Реализуйте в классе Person из соответствующей задачи 110-го курса статический метод,
+    // печатающий данные обо всех персонах, содержащихся в заданном наборе, реализующим
+    //Iterable<Person>.
+    public static void printAll(Collection<? extends Person> collection){
+        collection.forEach(Person::print);
+    }
+
+    //110-2-1
     public void print(){
 
         if(Person.this instanceof University.Teacher) {
@@ -126,36 +135,36 @@ public class Person {
         }
     }
 
-    public static void printAll(Person[] people){
-        for(Person p : people){
-            String className = p.getClass().getName();
-            switch (className) {
-                case "University.Teacher":
-                    Teacher t = (Teacher) p;
-                    String genderTeacher = (p.getGender() == Person.Gender.MALE) ? "M" : "F";
-                    System.out.println(
-                            "Name: " +
-                                    t.getName() + " Gender: " +
-                                    genderTeacher + " Faculty: " +
-                                    t.getFaculty() + " Degree: " + t.getDegree() + " Qualification: " + t.getQualification());
-                    break;
-                case "University.Student":
-                    Student s = (Student) p;
-                    String genderStudent = (p.getGender() == Person.Gender.MALE) ? "M" : "F";
-                    System.out.println(
-                            "Name: " + s.getName() + " Gender: " +
-                                    genderStudent + " Faculty: " + s.getFaculty() + " Degree: " + s.getTypeOfStudent() + " Course: " + s.getCourse());
-                    break;
-                case "University.Aspirant":
-                    Aspirant a = (Aspirant) p;
-                    String genderAspirant = (p.getGender() == Person.Gender.MALE) ? "M" : "F";
-                    System.out.println(
-                            "Name: " + a.getName() + " Gender: " +
-                                    genderAspirant + " Faculty: " + a.getFaculty() + " Thesis title: " + a.getThesisName());
-                    break;
-            }
-        }
-    }
+//    public static void printAll(Person[] people){
+//        for(Person p : people){
+//            String className = p.getClass().getName();
+//            switch (className) {
+//                case "University.Teacher":
+//                    Teacher t = (Teacher) p;
+//                    String genderTeacher = (p.getGender() == Person.Gender.MALE) ? "M" : "F";
+//                    System.out.println(
+//                            "Name: " +
+//                                    t.getName() + " Gender: " +
+//                                    genderTeacher + " Faculty: " +
+//                                    t.getFaculty() + " Degree: " + t.getDegree() + " Qualification: " + t.getQualification());
+//                    break;
+//                case "University.Student":
+//                    Student s = (Student) p;
+//                    String genderStudent = (p.getGender() == Person.Gender.MALE) ? "M" : "F";
+//                    System.out.println(
+//                            "Name: " + s.getName() + " Gender: " +
+//                                    genderStudent + " Faculty: " + s.getFaculty() + " Degree: " + s.getTypeOfStudent() + " Course: " + s.getCourse());
+//                    break;
+//                case "University.Aspirant":
+//                    Aspirant a = (Aspirant) p;
+//                    String genderAspirant = (p.getGender() == Person.Gender.MALE) ? "M" : "F";
+//                    System.out.println(
+//                            "Name: " + a.getName() + " Gender: " +
+//                                    genderAspirant + " Faculty: " + a.getFaculty() + " Thesis title: " + a.getThesisName());
+//                    break;
+//            }
+//        }
+//    }
 
 }
 
